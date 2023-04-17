@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        
+        </style>
+</head>
+<body>
+{% extends 'visualisation/base.html' %}
+
+{% block content %}
+<h1 style="color:dodgerblue; font-size:100%;" > Tournaments &raquo; {{non}}</h1>
+<hr size="1" color="LightGrey">
+<p style=" font-size:200%;" > {{non}}</p>
+
+
+<table>
+    <ul>
+    {% for puole in poules %}
+    <tr><td>
+    
+      
+        <p style="color:dodgerblue; font-size:150%;"> Pool {{puole.numero_poule}}</p>
+    
+    </td></tr>
+    {% endfor %}
+    </ul>
+</table>
+{% endblock %}
+
+
+</body>
+</html>

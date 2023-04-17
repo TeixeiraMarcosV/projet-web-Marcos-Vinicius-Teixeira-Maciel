@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="header">
+        <img src= 'sport.jpeg'  alt="Header Image">
+    </div>
+    <div class="content">
+       
+        {% block content %}
+        {% endblock %}
+        <hr size="1" color="LightGrey">
+    </div>
+    <div class="footer">
+        <p>copyright 2023 ISAE-SUPAERO</p>
+    </div>
+</body>
+</html>

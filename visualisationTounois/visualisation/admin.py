@@ -3,18 +3,18 @@ from .models import Tournoi, Equipe, Joueur, Match, Poule
 
 
 ## Register your models here.
-class TournoiAdmin(admin.ModelAdmin):
-    fieldsets = [
-        (None,               {'fields': ['non']}),
-        (None,               {'fields': ['non_lieu']}),
-        ('Date information', {'fields': ['data_debut']}),
-        (None,               {'fields': ['data_fin']}),
-        ('Equipes', {'fields': ['liste_equipes']}),
-        ('Nombre de Poules',               {'fields': ['nombre_de_poules']}),
-    ]
-    list_display = ('non', 'non_lieu') 
+#class TournoiAdmin(admin.ModelAdmin):
+    #fieldsets = [
+    #    (None,               {'fields': ['non']}),
+    #    (None,               {'fields': ['non_lieu']}),
+    #    ('Date information', {'fields': ['data_debut']}),
+    #    (None,               {'fields': ['data_fin']}),
+    #    ('Equipes', {'fields': ['liste_equipes']}),
+    #    ('Nombre de Poules',               {'fields': ['nombre_de_poules']}),
+    #]
+    #list_display = ('non', 'non_lieu') 
 
-admin.site.register(Tournoi, TournoiAdmin)
+admin.site.register(Tournoi)#, TournoiAdmin)
 
 
 class JoueurInline(admin.TabularInline):
@@ -50,12 +50,12 @@ admin.site.register(Equipe, EquipeAdmin)
     
 #admin.site.register(Match)#, EquipeAdmin)
 
-class MatchInline(admin.TabularInline):
-    model = Match
-    extra = 4 
+#class MatchInline(admin.TabularInline):
+   # model = Match
+   # extra = 4 
 
-class PouleAdmin(admin.ModelAdmin): 
-    inlines = [MatchInline]
+#class PouleAdmin(admin.ModelAdmin): 
+    #inlines = [MatchInline]
 
-admin.site.register(Poule, PouleAdmin)
-
+admin.site.register(Poule) #, PouleAdmin)
+admin.site.register(Match)

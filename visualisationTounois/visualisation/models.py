@@ -7,9 +7,8 @@ from django.db import models
 class Poule(models.Model):
     numero_poule = models.IntegerField()
     tournoi = models.ForeignKey('Tournoi', on_delete=models.CASCADE)
-    liste_equipe = models.ManyToManyField('Equipe')
-    def __str__(self):
-        return self.numero_poule
+    #liste_equipe = models.ManyToManyField('Equipe')
+   
  
 class Equipe(models.Model):
     non = models.CharField(max_length=50)
@@ -25,8 +24,7 @@ class Match(models.Model):
     equipe2 = models.ForeignKey('Equipe', related_name='partidas2',on_delete=models.CASCADE)
     score = models.IntegerField()
     poule= models.ForeignKey('Poule', on_delete=models.CASCADE)
-    def __str__(self):
-        return self.equipe1 + "Vs" + self.equipe2
+
     
 
 
@@ -45,4 +43,6 @@ class Tournoi(models.Model):
     #decouvrir comment faire le numéro aux poulle 
     nombre_de_poules = models.IntegerField()
     def __str__(self):
-        return self.non
+        return str(self.pk)
+    def datas(self):
+        return " ".join(self.split()[:3])
