@@ -51,7 +51,7 @@ class Tournoi(models.Model):
     #decouvrir comment faire le numéro aux poulle 
     nombre_de_poules = models.IntegerField()
     def __str__(self):
-        return non
+        return str(self.pk)
     def datas(self):
         return " ".join(self.split()[:3])
     

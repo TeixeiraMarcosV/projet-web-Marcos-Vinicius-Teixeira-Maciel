@@ -7,7 +7,7 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('text',)
         widgets = {
-            'text': forms.Textarea(attrs={'rows': 6, 'cols': 100,}),  # define o tamanho da caixa de texto
+            'text': forms.Textarea(attrs={'rows': 6, 'cols': 90,}),  # define o tamanho da caixa de texto
         }
 class EditCommentForm(forms.ModelForm):
     class Meta:

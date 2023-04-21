@@ -8,9 +8,10 @@
 <body> 
     {% if user.is_authenticated %}
     
-    <p style= "float: right" > {{user}} - <a  style="color:dodgerblue;" href="../../../accounts/logout">logout</a> <br>     </p>
+    <p style= "float: right" > {{user}} - &nbsp;<button style=" cursor: pointer; float: right; " onclick="window.location.href='/accounts/logout'">logout</button> <br> </p>
     {% else %}
-    <p> <a  style="color:dodgerblue;float: right;" href="../../../accounts/login">login</a> <br>     </p>
+    <button style=" cursor: pointer; float: right; " onclick="window.location.href='/accounts/login'">login</button>
+    <br>
     {% endif %}
 
     

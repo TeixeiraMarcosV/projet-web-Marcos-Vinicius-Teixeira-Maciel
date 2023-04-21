@@ -4,15 +4,19 @@
 <head>
   <style>
     table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
+            
+      width: 80%;
       
       }
-      td {
-        border-bottom: 1px solid black;
+      tr, td {
+        border: 1px solid black;
+        border-radius: 4px;
+      }
+      p {
+        margin: 5px 0; 
       }
     </style>
+    
 </head>
 <body>
 {% extends 'visualisation/base.html' %}
@@ -41,28 +45,29 @@
 <hr size="1" color="LightGrey">
 <p><strong>Comments</strong> </p>
 
-
+<table>
 {% for com in comment %}
-
-  <p> Author: {{com.author}}-{{com.created_data}}</p> 
-  <p> Comment: {{com.text}}</p> 
-
-  
-  
+<tr style = "border-bottom: 1px solid black;"><td style = "border-bottom: 1px solid black;">
   {% if com.author == request.user  %}
-  <a style = "color:red" href="modif_comment/{{com.id}}">Modif Comment</a>
+  <button style="color:red; cursor: pointer; float: right;" onclick="window.location.href='modif_comment/{{com.id}}'">Modif</button>
   {% endif %}
-    
+  <p> <strong>Author:</strong> {{com.author}}:{{com.created_data}}</p> 
+  <p> <strong>Comment:</strong> {{com.text}}</p> 
+  
+</td></tr>  
 {% endfor %}
+
+</table>
 
 {% if user.is_authenticated %}
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Enviar</button>
+  <button type="cursor: pointer; submit;" >Comment</button>
 </form>
 {% else %}
-<p> Please <a  style="color:dodgerblue;" href="../../../accounts/login">login</a> to comment this match</p>
+<p> Please <a  style="color:dodgerblue;" href="/accounts/login">login</a> to comment this match</p>
+
 {% endif %}
 
 

@@ -12,6 +12,9 @@
       td {
         border-bottom: 1px solid black;
       }
+      p {
+        margin: 5px 0; 
+      }
     </style>
 </head>
 <body>
@@ -19,7 +22,7 @@
 {% load static %} 
 
 {% block content %}
-<h1 style="color:dodgerblue; font-size:100%;" > <a  href="../../../../../">Tournaments</a> &raquo; <a  href="../../../../../">{{tournoi.non}}</a>  &raquo; <a  href="../../../../{{match.poule.id}}">{{match.poule}}</a> &raquo; <a href="../../">{{match.equipe1.non}} vs {{match.equipe2.non}}</a> &raquo; Modif Comment</h1>
+<h1 style="color:dodgerblue; font-size:100%;" > <a  href="../../../../../../../">Tournaments</a> &raquo; <a  href="../../../../../">{{tournoi.non}}</a>  &raquo; <a  href="../../../../{{match.poule.id}}">{{match.poule}}</a> &raquo; <a href="../../">{{match.equipe1.non}} vs {{match.equipe2.non}}</a> &raquo; Modif Comment</h1>
 <hr size="1" color="LightGrey">
 <p style=" font-size:200%;" > {{match.poule.tournoi.non}}</p>
 
@@ -30,7 +33,7 @@
   <tr><td>
       <p style="color:dodgerblue; font-size:150%;" >  0 {{match.equipe1.non}} vs {{match.equipe2.non}} 0 </p>
       <p><strong>Location:</strong> {{match.lieu}}</p>
-      <p><strong>Data:</strong> {{ match.date }}</p>
+      <p><strong>Data:</strong> {{ match.data }}</p>
       
   
   </td></tr>
@@ -39,10 +42,10 @@
   </ul>
 </table>
 <hr size="1" color="LightGrey">
-<p><strong>Modif comments</strong> </p>
+<p><strong>Modif comment:</strong> </p>
 
-  <p> Comment: {{comment.text}}</p> 
-    
+  <p> <strong>Original comment :</strong> {{comment.text}}</p> 
+  <p> <strong>New comment :</strong></p>  
 
 <form method="post">
   {% csrf_token %}
