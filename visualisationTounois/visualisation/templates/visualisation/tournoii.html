@@ -21,7 +21,7 @@
 {% extends 'visualisation/base.html' %}
 
 {% block content %}
-<h1 style="color:dodgerblue; font-size:100%;" > Tournaments &raquo; {{non}}</h1>
+<h1 style="color:dodgerblue; font-size:100%;" > <a  href="../../">Tournaments</a> &raquo; {{non}}</h1>
 <hr size="1" color="LightGrey">
 <p style=" font-size:200%;" > {{non}}</p>
 
@@ -32,7 +32,7 @@
     <tr><td>
     
       
-        <p style="color:dodgerblue; font-size:150%;"> Pool {{puole.numero_poule}}</p>
+        <p style="color:dodgerblue; font-size:150%;"> Pool <a  style="color:dodgerblue;" href="poule/{{puole.id}}/">  {{puole.numero_poule}} </a></p> 
     
     </td></tr>
     {% endfor %}

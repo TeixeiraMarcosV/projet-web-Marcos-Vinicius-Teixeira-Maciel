@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      
+      }
+      td {
+        border-bottom: 1px solid black;
+      }
+    </style>
+</head>
+<body>
+{% extends 'visualisation/base.html' %}
+{% load static %} 
+
+{% block content %}
+<h1 style="color:dodgerblue; font-size:100%;" > <a  href="../../../../../">Tournaments</a> &raquo; <a  href="../../../">{{tournoi.non}}</a>  &raquo; <a  href="../../{{match.poule.id}}">{{match.poule}}</a> &raquo; {{match.equipe1.non}} vs {{match.equipe2.non}}</h1>
+<hr size="1" color="LightGrey">
+<p style=" font-size:200%;" > {{match.poule.tournoi.non}}</p>
+
+<table>
+  <ul>
+    
+  
+  <tr><td>
+      <p style="color:dodgerblue; font-size:150%;" >  0 {{match.equipe1.non}} vs {{match.equipe2.non}} 0 </p>
+      <p><strong>Location:</strong> {{match.lieu}}</p>
+      <p><strong>Data:</strong> {{ match.date }}</p>
+      
+  
+  </td></tr>
+  
+  
+  </ul>
+</table>
+<hr size="1" color="LightGrey">
+<p><strong>Comments</strong> </p>
+
+
+{% for com in comment %}
+
+  <p> Author: {{com.author}}-{{com.created_data}}</p> 
+  <p> Comment: {{com.text}}</p> 
+
+  
+  
+  {% if com.author == request.user  %}
+  <a style = "color:red" href="modif_comment/{{com.id}}">Modif Comment</a>
+  {% endif %}
+    
+{% endfor %}
+
+{% if user.is_authenticated %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Enviar</button>
+</form>
+{% else %}
+<p> Please <a  style="color:dodgerblue;" href="../../../accounts/login">login</a> to comment this match</p>
+{% endif %}
+
+
+
+
+{% endblock %}
+
+
+</body>
+</html>

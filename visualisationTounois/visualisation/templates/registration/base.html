@@ -5,15 +5,7 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
 </head>
-<body> 
-    {% if user.is_authenticated %}
-    
-    <p style= "float: right" > {{user}} - <a  style="color:dodgerblue;" href="../../../accounts/logout">logout</a> <br>     </p>
-    {% else %}
-    <p> <a  style="color:dodgerblue;float: right;" href="../../../accounts/login">login</a> <br>     </p>
-    {% endif %}
-
-    
+<body>
     <div class="header">
         <img src="{% static 'images/sport.jpg' %}" width=1320px alt="logo"/>
     </div>

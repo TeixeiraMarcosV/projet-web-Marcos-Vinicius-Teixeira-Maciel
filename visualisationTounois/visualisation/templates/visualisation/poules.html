@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      table, th, td {
+ 
+        border-collapse: collapse;
+      }
+      
+      th:nth-child(even),td:nth-child(even) {
+        background-color: #D6EEEE;
+      }
+          
+          
+          
+          
+        </style>
+</head>
+<body>
+{% extends 'visualisation/base.html' %}
+
+{% block content %}
+<h1 style="color:dodgerblue; font-size:100%;" > <a  href="../../../../">Tournaments</a> &raquo; <a  href="../../">{{tournoi.non}}</a>  &raquo; Poule{{numero}}</h1>
+
+<hr size="1" color="LightGrey">
+<p style=" font-size:200%;" > {{non}}</p>
+<hr size="1" color="LightGrey">
+<p style=" font-size:200%;" > Poule{{numero}}</p>
+<p style=" font-size:200%;" > Equipes</p>
+
+<table style="width:100%">
+    <tr>
+        <td>Team name </td>
+        <td>Poll points</td>
+        <td>Score</td>
+        <td>Conceded</td>
+      </tr>
+    <ul>
+      
+    {% for equipe in selected_equipe %}
+
+    <tr>
+     
+        <td>{{equipe}} </td>
+        <td>7</td>
+        <td>2</td>
+        <td>6</td>
+      </tr>
+    {% endfor %}
+    </ul>
+</table>
+
+<p style=" font-size:200%;" > Matchs</p>
+
+<table>
+  <ul>
+    
+  {% for match in matchs %} 
+  <tr><td>
+      <p style="color:dodgerblue; font-size:150%;" > <a  style="color:dodgerblue;" href="../match/{{match.id}}/"> 0 {{match.equipe1.non}} vs {{match.equipe2.non}} 0 </a></p>
+      <p><strong>Location:</strong> {{matchTournoi.lieu}}</p>
+      <p><strong>Data:</strong> {{ match.data }}</p>
+      
+  
+  </td></tr>
+  {% endfor %}
+  
+  </ul>
+</table>
+
+{% endblock %}
+
+
+</body>
+</html>

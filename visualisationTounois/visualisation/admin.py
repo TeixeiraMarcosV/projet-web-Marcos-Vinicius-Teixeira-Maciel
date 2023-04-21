@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Tournoi, Equipe, Joueur, Match, Poule
+from .models import Tournoi, Equipe, Joueur, Match, Poule, Comment
 
 
 ## Register your models here.
@@ -27,6 +27,7 @@ class EquipeAdmin(admin.ModelAdmin):
     inlines = [JoueurInline]
     
 admin.site.register(Equipe, EquipeAdmin)
+admin.site.register(Comment)
 
 
 

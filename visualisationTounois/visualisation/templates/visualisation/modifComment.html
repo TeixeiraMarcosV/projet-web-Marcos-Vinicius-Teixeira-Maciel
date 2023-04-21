@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      
+      }
+      td {
+        border-bottom: 1px solid black;
+      }
+    </style>
+</head>
+<body>
+{% extends 'visualisation/base.html' %}
+{% load static %} 
+
+{% block content %}
+<h1 style="color:dodgerblue; font-size:100%;" > <a  href="../../../../../">Tournaments</a> &raquo; <a  href="../../../../../">{{tournoi.non}}</a>  &raquo; <a  href="../../../../{{match.poule.id}}">{{match.poule}}</a> &raquo; <a href="../../">{{match.equipe1.non}} vs {{match.equipe2.non}}</a> &raquo; Modif Comment</h1>
+<hr size="1" color="LightGrey">
+<p style=" font-size:200%;" > {{match.poule.tournoi.non}}</p>
+
+<table>
+  <ul>
+    
+  
+  <tr><td>
+      <p style="color:dodgerblue; font-size:150%;" >  0 {{match.equipe1.non}} vs {{match.equipe2.non}} 0 </p>
+      <p><strong>Location:</strong> {{match.lieu}}</p>
+      <p><strong>Data:</strong> {{ match.date }}</p>
+      
+  
+  </td></tr>
+  
+  
+  </ul>
+</table>
+<hr size="1" color="LightGrey">
+<p><strong>Modif comments</strong> </p>
+
+  <p> Comment: {{comment.text}}</p> 
+    
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Modif</button>
+</form>
+
+
+{% endblock %}
+
+
+</body>
+</html>
